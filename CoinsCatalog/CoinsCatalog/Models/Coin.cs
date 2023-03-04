@@ -2,7 +2,7 @@
 
 namespace CoinsCatalog.Models
 {
-    public struct Coin
+    public class Coin
     {
         [PrimaryKey]
         public long Id { get; set; }

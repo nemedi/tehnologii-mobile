@@ -20,7 +20,7 @@ namespace CoinsCatalog.ViewModels
             {
                 Dispatcher.GetForCurrentThread().Dispatch(async () =>
                 {
-                    coins = await service.GetCoinsByIssuerAsync(value);
+                    Coins = await service.GetCoinsByIssuerAsync(value);
                 });
             }
         }

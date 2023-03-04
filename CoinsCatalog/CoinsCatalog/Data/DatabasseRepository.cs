@@ -40,6 +40,7 @@ namespace CoinsCatalog.Data
             await Initialize();
             return await connection.Table<Models.Coin>()
                 .Where(coin => coin.Issuer == issuer.Name)
+                .OrderBy(coin => coin.Issue)
                 .ToListAsync();
         }
     }

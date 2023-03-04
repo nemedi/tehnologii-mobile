@@ -1,6 +1,6 @@
 ﻿namespace CoinsCatalog.Models
 {
-    public struct Authentication
+    public class Authentication
     {
         public string Token { get; set; }
         public long UserId { get; set; }

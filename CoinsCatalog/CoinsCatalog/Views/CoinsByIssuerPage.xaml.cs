@@ -1,5 +1,3 @@
-using Microsoft.Maui.Controls.Internals;
-
 namespace CoinsCatalog.Views;
 
 public partial class CoinsByIssuerPage : ContentPage, IQueryAttributable
@@ -15,7 +13,7 @@ public partial class CoinsByIssuerPage : ContentPage, IQueryAttributable
 		set
 		{
 			(BindingContext as ViewModels.ICoinsByIssuerViewModel).Issuer = value;
-			Title = $"Coins by {value.Name}";
+			Title = $"Coins of {value.Name}";
         }
 	}
 
