@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Names.Views.SearchNamePage"
+             Title="SearchNamePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Exit" Clicked="ExitToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <Label 
+            Text="Name"
+            HorizontalOptions="StartAndExpand" />
+        <Entry
+            Text="{Binding Name}"
+            HorizontalOptions="FillAndExpand"
+            TextChanged="Entry_TextChanged"/>
+        <Button Text="Search"
+                Clicked="SearchButton_Clicked"
+                HorizontalOptions="CenterAndExpand"
+                Margin="20"/>
+        <ActivityIndicator IsRunning="{Binding Busy}"
+                           IsVisible="{Binding Busy}"/>
+        <ListView Margin="20"
+              ItemsSource="{Binding Results}"
+              IsVisible="{Binding ResultsFound}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="20,0,0,0"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding District}"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Count}"
+                               VerticalTextAlignment="End"
+                               HorizontalOptions="End" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label 
+            Text="No results found."
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center"
+            IsVisible="{Binding NoResultsFound}"
+            Margin="20"/>
+    </VerticalStackLayout>
+</ContentPage>
