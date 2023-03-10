@@ -1,9 +1,6 @@
-﻿using CoinsCatalog.Models;
-using System.ComponentModel;
-
-namespace CoinsCatalog.ViewModels
+﻿namespace CoinsCatalog.ViewModels
 {
-    public class CoinsByIssuerViewModel : INotifyPropertyChanged, ICoinsByIssuerViewModel
+    public class CoinsByIssuerViewModel : ICoinsByIssuerViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private Services.IDataService service;

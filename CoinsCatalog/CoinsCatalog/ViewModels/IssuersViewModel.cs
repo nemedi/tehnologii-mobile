@@ -1,8 +1,6 @@
-﻿using System.ComponentModel;
-
-namespace CoinsCatalog.ViewModels
+﻿namespace CoinsCatalog.ViewModels
 {
-    public class IssuersViewModel : INotifyPropertyChanged, IIssuersViewModel
+    public class IssuersViewModel : IIssuersViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private Services.IDataService service;
@@ -11,15 +9,13 @@ namespace CoinsCatalog.ViewModels
         public IssuersViewModel(Services.IDataService service)
         {
             this.service = service;
-            Dispatcher.GetForCurrentThread().Dispatch(async () =>
-            {
-                Issuers = await service.GetIssuersAsync();
-            });
+			LoadIssuers();
         }
 
         public async Task ReloadAsync()
         {
             await service.ReloadAsync();
+			LoadIssuers();
         }
 
         public IList<Models.Issuer> Issuers
@@ -34,6 +30,14 @@ namespace CoinsCatalog.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Issuers)));
             }
         }
+		
+		private void LoadIssuers()
+		{
+			Dispatcher.GetForCurrentThread().Dispatch(async () =>
+            {
+                Issuers = await service.GetIssuersAsync();
+            });
+		}
 
     }
 }
