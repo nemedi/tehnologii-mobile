@@ -1,74 +1,69 @@
-﻿using Newtonsoft.Json.Linq;
-using FlightRadar.Utilities;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace FlightRadar.Services
 {
     public class FlightsService : IFlightsService
     {
-        const string flightsEndpoint = "https://data-live.flightradar24.com/zones/fcgi/feed.js";
+        const string flightsEndpoint = "https://data-cloud.flightradar24.com/zones/fcgi/feed.js?faa=1&bounds=49.381%2C42.022%2C19.324%2C32.056&satellite=1&mlat=1&flarm=1&adsb=1&gnd=1&air=1&vehicles=1&estimated=1&maxage=14400&gliders=1&stats=1";
         const string flightEndpoint = "https://data-live.flightradar24.com/clickhandler/?flight=";
         const double distance = 100;
+        private Location location;
 
-        private bool initialized;
-        private double latitude;
-        private double longitude;
-
-        public async Task<IList<Models.Flight>> GetFlights()
+        async public Task<IList<Models.Flight>> GetFlights()
         {
-            if (!initialized)
+            if (location is null)
             {
-                var location = await Geolocation.GetLocationAsync();
-                latitude = location.Latitude;
-                longitude = location.Longitude;
-                initialized = true;
+                location = await Geolocation.GetLocationAsync();
             }
             var flights = new List<Models.Flight>();
-            foreach (var property in await GetJson(flightsEndpoint))
+            using (var client = new HttpClient())
             {
-                if (property.Key != "full_count" && property.Key != "version")
+                var body = await client.GetStringAsync(flightsEndpoint);
+                JObject flightsJson = JObject.Parse(body);
+                foreach (var entry in flightsJson)
                 {
-                    var flightBasicDetails = property.Value as JArray;
-                    string code = property.Key;
-                    double latitude = (double)flightBasicDetails[1];
-                    double longitude = (double)flightBasicDetails[2];
-                    if (DistanceBetween(this.latitude,
-                        this.longitude,
-                        latitude,
-                        longitude) <= distance * 1000)
+                    if (entry.Key != "full_count" && entry.Key != "version" && entry.Value is JArray)
                     {
-                        var flightAdditionalDetails = await GetJson(flightEndpoint + code);
-                        var origin = flightAdditionalDetails.GetValue<string>("airport", "origin", "name");
-                        var destination = flightAdditionalDetails.GetValue<string>("airport", "destination", "name");
-                        var aircraft = flightAdditionalDetails.GetValue<string>("aircraft", "model", "text");
-                        var airline = flightAdditionalDetails.GetValue<string>("airline", "name");
-                        flights.Add(new Models.Flight(code, latitude, longitude, origin, destination, aircraft, airline));
+                        double latitude = (double)(entry.Value as JArray)[1];
+                        double longitude = (double)(entry.Value as JArray)[2];
+                        if (location.CalculateDistance(
+                            new Location(latitude, longitude), DistanceUnits.Kilometers) <= distance)
+                        {
+                            body = await client.GetStringAsync(flightEndpoint + entry.Key);
+                            var flightJson = JObject.Parse(body);
+                            string origin = flightJson["airport"] is JObject
+                                && (flightJson["airport"] as JObject)["origin"] is JObject
+                                && ((flightJson["airport"] as JObject)["origin"] as JObject).ContainsKey("name")
+                                ? (string)((flightJson["airport"] as JObject)["origin"] as JObject)["name"]
+                                : "";
+                            string destination = flightJson["airport"] is JObject
+                                && (flightJson["airport"] as JObject)["destination"] is JObject
+                                && ((flightJson["airport"] as JObject)["destination"] as JObject).ContainsKey("name")
+                                ? (string)((flightJson["airport"] as JObject)["destination"] as JObject)["name"]
+                                : "";
+                            string aircraft = flightJson["aircraft"] is JObject
+                                && (flightJson["aircraft"] as JObject)["model"] is JObject
+                                && ((flightJson["aircraft"] as JObject)["model"] as JObject).ContainsKey("text")
+                                ? (string)((flightJson["aircraft"] as JObject)["model"] as JObject)["text"]
+                                : "";
+                            string airline = flightJson["airline"] is JObject
+                                && (flightJson["airline"] as JObject).ContainsKey("name")
+                                ? (string)(flightJson["airline"] as JObject)["name"]
+                                : "";
+                            flights.Add(new Models.Flight
+                                {
+                                    Aircraft = aircraft ?? "",
+                                    Airline = airline ?? "",
+                                    Destination = destination ?? "",
+                                    Origin = origin ?? ""
+                                }
+                            );
+                        }
                     }
                 }
             }
-
             return flights;
-        }
-
-        private async Task<JObject> GetJson(string endpoint)
-        {
-            return JObject.Parse(await new HttpClient().GetStringAsync(endpoint));
-
-        }
-
-        private static double DistanceBetween(double sourceLatitude,
-           double sourceLongitute, double destinationLatitude,
-            double destinationLongitude)
-        {
-            double R = 6378137;
-            double dLat = (destinationLatitude - sourceLatitude) * Math.PI / 180;
-            double dLng = (destinationLongitude - sourceLongitute) * Math.PI / 180;
-            double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2)
-                    + Math.Cos(sourceLatitude * Math.PI / 180)
-                    * Math.Cos(destinationLatitude * Math.PI / 180)
-                    * Math.Sin(dLng / 2) * Math.Sin(dLng / 2);
-            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-            double d = R * c;
-            return Math.Round(d);
         }
     }
 }

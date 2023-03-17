@@ -1,4 +1,6 @@
-﻿namespace CoinsCatalog.ViewModels
+﻿using System.ComponentModel;
+
+namespace CoinsCatalog.ViewModels
 {
     public class CoinsByIssuerViewModel : ICoinsByIssuerViewModel
     {

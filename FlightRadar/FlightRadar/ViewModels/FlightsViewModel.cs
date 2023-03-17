@@ -2,16 +2,13 @@
 
 namespace FlightRadar.ViewModels
 {
-    public class FlightViewModel : INotifyPropertyChanged
+    public class FlightViewModel : IFlightRadarViewModel
     {
         private IList<Models.Flight> flights;
-        private Services.IFlightsService service;
 
-        public FlightViewModel()
+        public FlightViewModel(Services.IFlightsService service)
         {
-            service = DependencyService.Resolve<Services.IFlightsService>();
-            flights = new List<Models.Flight>();
-            Dispatcher.GetForCurrentThread().StartTimer(new TimeSpan(0, 0, 10), () =>
+            Dispatcher.GetForCurrentThread().StartTimer(new TimeSpan(0, 0, 5), () =>
             {
                 MainThread.BeginInvokeOnMainThread(async () =>
                 {

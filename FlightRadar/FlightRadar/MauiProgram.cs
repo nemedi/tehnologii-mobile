@@ -18,7 +18,9 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
-		return builder.Build();
+		builder.Services.AddSingleton<Services.IFlightsService, Services.FlightsService>();
+        builder.Services.AddTransient<ViewModels.IFlightRadarViewModel, ViewModels.FlightViewModel>();
+		builder.Services.AddTransient<Pages.FlightsRadarPage>();
+        return builder.Build();
 	}
 }
