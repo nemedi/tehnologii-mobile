@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Coins.Pages.CoinPage"
+             Title="Coin">
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="10"
+                             HorizontalOptions="FillAndExpand">
+            <Label Text="Description" />
+            <Entry Text="{Binding Coin.Description}" />
+            <Label Text="Country" />
+            <Entry Text="{Binding Coin.Country}" />
+            <Label Text="Year" />
+            <Entry Text="{Binding Coin.Year}" />
+            <Button Text="Photos"
+                    Command="{Binding ShowCoinPhotos}" />
+            <Button Text="Save"
+                    Command="{Binding SaveCoin}"/>
+            <Button Text="Delete"
+                    Command="{Binding RemoveCoin}"
+                    IsVisible="{Binding !Coin.New}" />
+            <Button Text="Cancel"
+                    Command="{Binding CancelCoin}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

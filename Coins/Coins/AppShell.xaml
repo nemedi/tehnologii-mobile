@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Coins.AppShell"
+    x:Name="shell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Coins"
+    Shell.FlyoutBehavior="Disabled">
+    <ShellContent
+        Title="Countries"
+        ContentTemplate="{DataTemplate local:Pages.CountriesPage}"
+        Route="countries" />
+    <ShellContent
+        Title="Coins by Country"
+        ContentTemplate="{DataTemplate local:Pages.CoinsByCountryPage}"
+        Route="coinsByCountry" />
+    <ShellContent
+        Title="Coin Details"
+        ContentTemplate="{DataTemplate local:Pages.CoinPage}"
+        Route="coin" />
+    <ShellContent
+        Title="Coin Photos"
+        ContentTemplate="{DataTemplate local:Pages.CoinPhotosPage}"
+        Route="coinPhotos" />
+</Shell>
