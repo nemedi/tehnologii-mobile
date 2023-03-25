@@ -5,6 +5,7 @@ namespace Coins.ViewModels
     public class CoinViewModel : BaseViewModel
     {
         Data.Coin coin = new();
+        bool isNew = false;
         public ICommand ShowCoinPhotos { get; private set; }
         public ICommand SaveCoin { get; private set; }
         public ICommand RemoveCoin { get; private set; }
@@ -13,7 +14,7 @@ namespace Coins.ViewModels
         public CoinViewModel(Data.Database database) : base(database)
         {
             ShowCoinPhotos = new Command(
-                async () => await Shell.Current.GoToAsync($"//coinPhotos?coin={Coin.Id}"));
+                async () => await Shell.Current.GoToAsync($"//coinPhotos?id={Coin.Id}&new={IsNew}"));
             SaveCoin = new Command(
                 async () => {
                     await Database.SaveCoinAsync(Coin);
@@ -46,7 +47,7 @@ namespace Coins.ViewModels
             get => coin?.Id;
             set
             {
-                if (value is not null)
+                if (!IsNew)
                 {
                     MainThread.BeginInvokeOnMainThread(async () =>
                     {
@@ -55,6 +56,18 @@ namespace Coins.ViewModels
                 }
             }
         }
+
+        public bool IsNew
+        {
+            get => isNew;
+            set
+            {
+                isNew = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool CanBeRemoved => !IsNew;
 
         async Task GoBackAsync()
         {

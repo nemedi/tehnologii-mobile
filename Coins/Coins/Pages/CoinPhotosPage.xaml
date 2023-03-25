@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="Coins.Pages.CoinPhotosPage"
-            Title="Coin Photos"
-            ItemsSource="{Binding Sides}">
-    <TabbedPage.ItemTemplate>
-        <DataTemplate>
-            <ContentPage Title="{Binding Side}">
-                <StackLayout Padding="5, 25">
-                    <Button Text="Cancel"
-                            Command="{Binding GoToCoin}"
-                            HorizontalOptions="Center" />
-                    <Button Text="Take Photo"
-                            Command="{Binding TakePhotoCommand}"
-                            CommandParameter="{Binding Side}"
-                            HorizontalOptions="Center" />
-                    <Image Source="{Binding Photo}"
-                           HorizontalOptions="FillAndExpand"
-                           VerticalOptions="FillAndExpand" />
-                </StackLayout>
-            </ContentPage>
-        </DataTemplate>
-    </TabbedPage.ItemTemplate>
-</TabbedPage>
+            Title="Coin Photos">
+    <StackLayout Padding="5, 25">
+        <Button Text="Cancel"
+                Command="{Binding GoToCoin}"
+                HorizontalOptions="FillAndExpand" />
+        <Button Text="Front Photo"
+                Command="{Binding TakePhotoCommand}"
+                CommandParameter="Front"
+                HorizontalOptions="FillAndExpand" />
+        <Image Source="{Binding FrontPhoto}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+        <Button Text="Back Photo"
+                Command="{Binding TakePhotoCommand}"
+                CommandParameter="Back"
+                HorizontalOptions="FillAndExpand" />
+        <Image Source="{Binding BackPhoto}"
+                WidthRequest="400"
+                HeightRequest="400"
+                HorizontalOptions="FillAndExpand" />
+
+    </StackLayout>
+</ContentPage>

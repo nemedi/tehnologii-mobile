@@ -21,13 +21,13 @@ namespace Coins.Data
             }
         }
 
-        async public Task<IList<string>> GetCountriesAsync()
+        public async Task<IList<string>> GetCountriesAsync()
         {
             await InitializeAsync();
             return await connection.QueryScalarsAsync<string>("select distinct [Country] from [Coin] order by [Country]");
         }
 
-        async public Task<IList<Coin>> GetCoinsByCountryAsync(string country)
+        public async Task<IList<Coin>> GetCoinsByCountryAsync(string country)
         {
             await InitializeAsync();
             return await connection.Table<Coin>()
@@ -36,7 +36,7 @@ namespace Coins.Data
                .ToListAsync();
         }
 
-        async public Task<Coin> GetCoinById(string id)
+        public async Task<Coin?> GetCoinById(string id)
         {
             await InitializeAsync();
             return await connection.Table<Coin>()
@@ -44,7 +44,7 @@ namespace Coins.Data
                 .FirstAsync();
         }
 
-        async public Task SaveCoinAsync(Coin coin)
+        public async Task SaveCoinAsync(Coin coin)
         {
             await InitializeAsync();
             if (coin.New)
@@ -59,7 +59,7 @@ namespace Coins.Data
             await connection.DeleteAllAsync<Coin>();
         }
 
-        async public Task RemoveCoinAsync(Coin coin)
+        public async Task RemoveCoinAsync(Coin coin)
         {
             await connection.DeleteAsync<Coin>(coin);
         }

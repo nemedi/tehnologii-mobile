@@ -19,7 +19,7 @@
                     Command="{Binding SaveCoin}"/>
             <Button Text="Delete"
                     Command="{Binding RemoveCoin}"
-                    IsVisible="{Binding !Coin.New}" />
+                    IsVisible="{Binding CanBeRemoved}" />
             <Button Text="Cancel"
                     Command="{Binding CancelCoin}" />
         </VerticalStackLayout>

@@ -4,7 +4,8 @@ namespace Coins.ViewModels
 {
     public class CoinPhotosViewModel : BaseViewModel
     {
-        private string id;
+        string id;
+        public ICommand TakePhotoCommand { get; private set; }
         public ICommand GoToCoin { get; private set; }
 
         public string Id
@@ -12,51 +13,38 @@ namespace Coins.ViewModels
             set
             {
                 id = value;
-                OnPropertyChanged(nameof(Sides));
+                OnPropertyChanged(nameof(FrontPhoto));
+                OnPropertyChanged(nameof(BackPhoto));
             }
         }
+
+        public bool New { get; set; } = false;
+        
         public CoinPhotosViewModel(Data.Database database) : base(database)
         {
-            GoToCoin = new Command(
-                async () => await Shell.Current.GoToAsync($"//coin?id={id}"));
-        }
-
-        public IList<dynamic> Sides
-        {
-            get
-            {
-                return new List<dynamic>
+            TakePhotoCommand = new Command<string>(
+                async (side) =>
                 {
-                    new
+                    if (MediaPicker.Default.IsCaptureSupported)
                     {
-                        Title = "Front",
-                        Photo = Path.Combine(FileSystem.CacheDirectory, $"{id}_front.jpg"),
-                        TakePhotoCommand = new Command<string>(async (side) => await TakePhoto(side))
-                    },
-                    new
-                    {
-                        Title = "Back",
-                        Photo = Path.Combine(FileSystem.CacheDirectory, $"{id}_back.jpg"),
-                        TakePhotoCommand = new Command<string>(async (side) => await TakePhoto(side))
+                        FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
+                        if (photo != null)
+                        {
+                            string path = Path.Combine(FileSystem.CacheDirectory, $"{id}_{side.ToLower()}.jpg");
+                            using Stream sourceStream = await photo.OpenReadAsync();
+                            using FileStream targetStream = File.OpenWrite(path);
+                            await sourceStream.CopyToAsync(targetStream);
+                            OnPropertyChanged(side + "Photo");
+                        }
                     }
-                };
-            }
+                });
+            GoToCoin = new Command(
+                async () => await Shell.Current.GoToAsync($"//coin?id={id}&new={New}"));
         }
 
-        async public Task TakePhoto(string side)
-        {
-            if (MediaPicker.Default.IsCaptureSupported)
-            {
-                FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
-                if (photo != null)
-                {
-                    string path = Path.Combine(FileSystem.CacheDirectory, $"{id}_{side.ToLower()}.jpg");
-                    using Stream sourceStream = await photo.OpenReadAsync();
-                    using FileStream targetStream = File.OpenWrite(path);
-                    await sourceStream.CopyToAsync(targetStream);
-                    OnPropertyChanged(nameof(Sides));
-                }
-            }
-        }
+        public string FrontPhoto => Path.Combine(FileSystem.CacheDirectory, $"{id}_front.jpg");
+
+        public string BackPhoto => Path.Combine(FileSystem.CacheDirectory, $"{id}_back.jpg");
+
     }
 }

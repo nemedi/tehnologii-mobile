@@ -14,7 +14,7 @@ namespace Coins.ViewModels
             GoToCountriesCommand = new Command(
                 async () => await Shell.Current.GoToAsync("//countries"));
             EditCoinCommand = new Command<string>(
-                async (id) => await Shell.Current.GoToAsync($"//coin?id={id}"));
+                async (id) => await Shell.Current.GoToAsync($"//coin?id={id}&new=false"));
         }
 
         public string Country

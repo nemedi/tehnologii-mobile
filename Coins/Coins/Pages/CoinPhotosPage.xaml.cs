@@ -1,6 +1,6 @@
 namespace Coins.Pages;
 
-public partial class CoinPhotosPage : TabbedPage, IQueryAttributable
+public partial class CoinPhotosPage : ContentPage, IQueryAttributable
 {
 	public CoinPhotosPage(ViewModels.CoinPhotosViewModel viewModel)
 	{
@@ -11,5 +11,6 @@ public partial class CoinPhotosPage : TabbedPage, IQueryAttributable
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
 		(BindingContext as ViewModels.CoinPhotosViewModel).Id = query["id"] as string;
+        (BindingContext as ViewModels.CoinPhotosViewModel).New = bool.Parse(query["new"] as string);
     }
 }

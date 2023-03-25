@@ -4,10 +4,13 @@
              x:Class="Coins.Pages.CountriesPage"
              Title="Countries">
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout Padding="20"
+                             Spacing="10"
+                             HorizontalOptions="FillAndExpand">
             <Button Text="Add"
-                    Command="{Binding AddCoinCommand}"
-                    Margin="20"/>
+                    Command="{Binding AddCoinCommand}" />
+            <Button Text="Exit"
+                    Command="{Binding ExitCommand}" />
             <ListView ItemsSource="{Binding Countries}"
                     ItemSelected="ListView_ItemSelected"
                     VerticalOptions="FillAndExpand">
