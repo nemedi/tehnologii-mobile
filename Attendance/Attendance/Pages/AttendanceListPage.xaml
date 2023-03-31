@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Attendance.Pages.AttendanceListPage"
+             Title="Attendance List">
+    <VerticalStackLayout Margin="10"
+                 Spacing="10">
+        <Button Text="{Binding ButtonText}"
+                Command="{Binding ToggleScanningForDevicesCommand}" />
+        <Button Text="Export"
+                Command="{Binding ExportAttendancesCommand}" />
+        <Button Text="Exit"
+                Command="{Binding ExitCommand}" />
+        <ScrollView>
+            <ListView ItemsSource="{Binding Attendances}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Attendee}" />
+                                <Label Text="{Binding Device}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

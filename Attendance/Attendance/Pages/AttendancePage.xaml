@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Attendance.Pages.AttendancePage"
+             Title="Attendance">
+    <VerticalStackLayout Margin="10"
+                         Spacing="10">
+        <Label 
+            Text="Device"
+            VerticalOptions="Center" 
+            HorizontalOptions="StartAndExpand" />
+        <Label 
+            Text="{Binding Device}"
+            VerticalOptions="Center" 
+            HorizontalOptions="StartAndExpand" />
+        <Label 
+            Text="Attendee"
+            VerticalOptions="Center" 
+            HorizontalOptions="StartAndExpand" />
+        <Entry
+            Text="{Binding Attendee}"
+            VerticalOptions="Center" 
+            HorizontalOptions="StartAndExpand" />
+        <Button Text="Save"
+                Command="{Binding SaveAttendanceCommand}"
+                HorizontalOptions="FillAndExpand" />
+        <Button Text="Remove"
+                Command="{Binding RemoveAttendanceCommand}"
+                HorizontalOptions="FillAndExpand" />
+    </VerticalStackLayout>
+</ContentPage>
