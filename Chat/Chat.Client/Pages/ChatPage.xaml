@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Chat.Client.ViewModels"
+             x:Class="Chat.Client.Pages.ChatPage"
+             Title="Chat">
+    <ContentPage.BindingContext>
+        <viewmodels:ChatViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Spacing="10" Margin="10">
+        <Label Text="Message"
+            HorizontalOptions="FillAndExpand" />
+        <Entry Text="{Binding Content}"
+               HorizontalOptions="FillAndExpand" />
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Send"
+               WidthRequest="200"
+               Command="{Binding SendMessageCommand} "/>
+            <Button Text="Logout"
+               WidthRequest="200"
+               Command="{Binding LogoutCommand} "/>
+        </HorizontalStackLayout>
+        <Label Text="Messages"
+            HorizontalOptions="FillAndExpand" />
+        <ScrollView HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+            <ListView ItemsSource="{Binding Messages}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding User}"
+                                       HorizontalOptions="StartAndExpand"
+                                       FontAttributes="Bold" />
+                                <Label Text="{Binding Content}"
+                                       HorizontalOptions="StartAndExpand" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

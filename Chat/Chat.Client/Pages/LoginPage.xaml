@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Chat.Client.ViewModels"
+             x:Class="Chat.Client.Pages.LoginPage"
+             Title="Login">
+    <ContentPage.BindingContext>
+        <viewmodels:LoginViewModel Endpoint="wss://jb2fpf74-6969.euw.devtunnels.ms/chat" />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Spacing="10" Margin="10">
+        <Label Text="User"
+            HorizontalOptions="FillAndExpand" />
+        <Entry Text="{Binding User}"
+               HorizontalOptions="FillAndExpand" />
+        <Label Text="Endpoint"
+               HorizontalOptions="FillAndExpand" />
+        <Entry Text="{Binding Endpoint}"
+               HorizontalOptions="FillAndExpand" />
+        <HorizontalStackLayout Spacing="10"
+                               HorizontalOptions="FillAndExpand">
+            <Button Text="Login"
+                Command="{Binding LoginCommand}"
+                WidthRequest="200" />
+            <Button Text="Exit"
+                Command="{Binding ExitCommand}"
+                WidthRequest="200" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
