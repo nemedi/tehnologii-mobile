@@ -14,10 +14,10 @@
                HorizontalOptions="FillAndExpand" />
         <HorizontalStackLayout Spacing="10">
             <Button Text="Send"
-               WidthRequest="200"
+               WidthRequest="150"
                Command="{Binding SendMessageCommand} "/>
             <Button Text="Logout"
-               WidthRequest="200"
+               WidthRequest="150"
                Command="{Binding LogoutCommand} "/>
         </HorizontalStackLayout>
         <Label Text="Messages"

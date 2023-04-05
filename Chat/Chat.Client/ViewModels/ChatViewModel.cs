@@ -36,7 +36,7 @@ namespace Chat.Client.ViewModels
         
         void OnMessageReceived(Models.Message message)
         {
-            Messages.Add(message);
+            Messages.Insert(0, message);
         }
 
         async Task OnSendMessageAsync()
@@ -47,6 +47,7 @@ namespace Chat.Client.ViewModels
 
         async Task OnLogoutAsync()
         {
+            Messages.Clear();
             await Shell.Current.GoToAsync("//login");
         }
 

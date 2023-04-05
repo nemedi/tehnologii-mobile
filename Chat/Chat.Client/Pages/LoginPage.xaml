@@ -20,10 +20,10 @@
                                HorizontalOptions="FillAndExpand">
             <Button Text="Login"
                 Command="{Binding LoginCommand}"
-                WidthRequest="200" />
+                WidthRequest="150" />
             <Button Text="Exit"
                 Command="{Binding ExitCommand}"
-                WidthRequest="200" />
+                WidthRequest="150" />
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
