@@ -14,6 +14,9 @@
     <MauiXaml Update="Views\CoinsByIssuerPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\CustomerFormPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\IssuersPages.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

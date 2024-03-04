@@ -26,6 +26,8 @@ public static class MauiProgram
         builder.Services.AddTransient<Views.IssuersPage>();
         builder.Services.AddTransient<ViewModels.CoinsByIssuerViewModel>();
         builder.Services.AddTransient<Views.CoinsByIssuerPage>();
+        builder.Services.AddTransient<ViewModels.CustomerViewModel>();
+        builder.Services.AddTransient<Views.CustomerFormPage>();
         return builder.Build();
 	}
 }

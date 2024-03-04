@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SearchFlightsByAirline.Views.FlightsPage"
+             Title="Flights by Airline">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Exit" Clicked="ExitToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <Label Text="Airline Code" HorizontalOptions="StartAndExpand"/>
+        <Entry Text="{Binding Airline}" HorizontalOptions="FillAndExpand" TextChanged="AirlineEntry_TextChanged"/>
+        <Button Text="Search" HorizontalOptions="CenterAndExpand" Margin="20" Clicked="SearchButton_Clicked"/>
+        <ActivityIndicator IsRunning="{Binding Busy}" IsVisible="{Binding Busy}"/>
+        <ScrollView>
+            <ListView Margin="20" ItemsSource="{Binding Flights}" IsVisible="{Binding HasFlights}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="From" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding Origin}" Grid.Row="0" Grid.Column="1" />
+                                <Label Text="To" Grid.Row="1" Grid.Column="0" />
+                                <Label Text="{Binding Destination}" Grid.Row="1" Grid.Column="1" />
+                                <Label Text="Aircraft" Grid.Row="2" Grid.Column="0" />
+                                <Label Text="{Binding Aircraft}" Grid.Row="2" Grid.Column="1" />
+                                <Label Text="Status" Grid.Row="3" Grid.Column="0"/>
+                                <Label Text="{Binding Status}" Grid.Row="3" Grid.Column="1"/>
+                                <Label Text="" Grid.Row="4" Grid.Column="0"/>
+                                <Label Text="" Grid.Row="4" Grid.Column="1"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <Label Text="No flights found." HorizontalOptions="FillAndExpand" Margin="20" IsVisible="{Binding HasNoFlight}"/>
+    </VerticalStackLayout>
+</ContentPage>

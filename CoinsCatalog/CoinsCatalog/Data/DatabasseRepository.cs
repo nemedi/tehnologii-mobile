@@ -32,6 +32,7 @@ namespace CoinsCatalog.Data
         public async Task<List<Models.Issuer>> GetIssuersAsync()
         {
             await Initialize();
+            await connection.Table<Models.Coin>().Where(coin => coin.Id == 0).ToListAsync();
             return await connection.QueryAsync<Models.Issuer>("select distinct [Issuer] as [Name] from [Coin] order by [Issuer]");
         }
 
