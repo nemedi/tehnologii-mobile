@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Notes.Views.AllNotesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:Notes.ViewModels"
+    Title="Your Notes"
+    NavigatedTo="ContentPage_NavigatedTo">
+    <ContentPage.BindingContext>
+        <viewModels:NotesViewModel />
+    </ContentPage.BindingContext>
+
+    <!--  Add an item to the toolbar  -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding NewNoteCommand}"
+            IconImageSource="{FontImage Glyph='+',
+                                        Color={StaticResource Primary},
+                                        Size=22}"
+            Text="Add" />
+    </ContentPage.ToolbarItems>
+
+    <!--  Display notes in a list  -->
+    <CollectionView
+        x:Name="notesCollection"
+        Margin="20"
+        x:FieldModifier="internal"
+        ItemsSource="{Binding AllNotes}"
+        SelectionChangedCommand="{Binding SelectNoteCommand}"
+        SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}"
+        SelectionMode="Single">
+        <!--  Designate how the collection of items are laid out  -->
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+
+        <!--  Define the appearance of each item in the list  -->
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <Label FontSize="22" Text="{Binding Text}" />
+                    <Label
+                        FontSize="14"
+                        Text="{Binding Date}"
+                        TextColor="Silver" />
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

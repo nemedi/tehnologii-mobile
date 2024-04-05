@@ -108,12 +108,12 @@ namespace Essentials.ViewModels
 					typeof(Pages.FlashlightPage),
 					"A simple way to turn the flashlight on/off.",
 					new[] { "flashlight", "torch", "hardware", "flash", "device" }),
-				//new Models.SampleItem(
-				//	"📍",
-				//	"Geocoding",
-				//	typeof(Pages.GeocodingPage),
-				//	"Easily geocode and reverse geocoding.",
-				//	new[] { "geocoding", "geolocation", "position", "address", "mapping" }),
+				new Models.SampleItem(
+					"📍",
+					"Geocoding",
+					typeof(Pages.GeocodingPage),
+					"Easily geocode and reverse geocoding.",
+					new[] { "geocoding", "geolocation", "position", "address", "mapping" }),
 				//new Models.SampleItem(
 				//	"📍",
 				//	"Geolocation",

@@ -62,6 +62,9 @@
     <MauiXaml Update="Pages\FlashlightPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\GeocodingPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\GyroscopePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

@@ -1,0 +1,1 @@
+D:\Work\ASE\TMW\tehnologii-mobile\Essentials\Essentials\Essentials.csproj;x64

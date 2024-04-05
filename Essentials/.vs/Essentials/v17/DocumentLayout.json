@@ -1,0 +1,154 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|d:\\work\\ase\\tmw\\tehnologii-mobile\\essentials\\essentials\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|solutionrelative:essentials\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|d:\\work\\ase\\tmw\\tehnologii-mobile\\essentials\\essentials\\pages\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|solutionrelative:essentials\\pages\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|d:\\work\\ase\\tmw\\tehnologii-mobile\\essentials\\essentials\\viewmodels\\geocodingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|solutionrelative:essentials\\viewmodels\\geocodingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|d:\\work\\ase\\tmw\\tehnologii-mobile\\essentials\\essentials\\pages\\homepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|solutionrelative:essentials\\pages\\homepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|d:\\work\\ase\\tmw\\tehnologii-mobile\\essentials\\essentials\\pages\\geocodingpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|solutionrelative:essentials\\pages\\geocodingpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|d:\\work\\ase\\tmw\\tehnologii-mobile\\essentials\\essentials\\essentials.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|solutionrelative:essentials\\essentials.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|d:\\work\\ase\\tmw\\tehnologii-mobile\\essentials\\essentials\\pages\\filepickerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|solutionrelative:essentials\\pages\\filepickerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|d:\\work\\ase\\tmw\\tehnologii-mobile\\essentials\\essentials\\viewmodels\\accelerometerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77D29B19-0236-465E-9C72-45C421B28ACB}|Essentials\\Essentials.csproj|solutionrelative:essentials\\viewmodels\\accelerometerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GeocodingViewModel.cs",
+              "DocumentMoniker": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\ViewModels\\GeocodingViewModel.cs",
+              "RelativeDocumentMoniker": "Essentials\\ViewModels\\GeocodingViewModel.cs",
+              "ToolTip": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\ViewModels\\GeocodingViewModel.cs",
+              "RelativeToolTip": "Essentials\\ViewModels\\GeocodingViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T14:21:37.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomePage.xaml.cs",
+              "DocumentMoniker": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\Pages\\HomePage.xaml.cs",
+              "RelativeDocumentMoniker": "Essentials\\Pages\\HomePage.xaml.cs",
+              "ToolTip": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\Pages\\HomePage.xaml.cs",
+              "RelativeToolTip": "Essentials\\Pages\\HomePage.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T13:52:10.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomePage.xaml",
+              "DocumentMoniker": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\Pages\\HomePage.xaml",
+              "RelativeDocumentMoniker": "Essentials\\Pages\\HomePage.xaml",
+              "ToolTip": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\Pages\\HomePage.xaml",
+              "RelativeToolTip": "Essentials\\Pages\\HomePage.xaml",
+              "ViewState": "AQIAABYAAAAAAAAAAAAowCsAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-27T13:52:00.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GeocodingPage.xaml",
+              "DocumentMoniker": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\Pages\\GeocodingPage.xaml",
+              "RelativeDocumentMoniker": "Essentials\\Pages\\GeocodingPage.xaml",
+              "ToolTip": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\Pages\\GeocodingPage.xaml",
+              "RelativeToolTip": "Essentials\\Pages\\GeocodingPage.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-27T13:47:19.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Essentials.csproj",
+              "DocumentMoniker": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\Essentials.csproj",
+              "RelativeDocumentMoniker": "Essentials\\Essentials.csproj",
+              "ToolTip": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\Essentials.csproj*",
+              "RelativeToolTip": "Essentials\\Essentials.csproj*",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAGQAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-27T13:30:49.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FilePickerPage.xaml",
+              "DocumentMoniker": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\Pages\\FilePickerPage.xaml",
+              "RelativeDocumentMoniker": "Essentials\\Pages\\FilePickerPage.xaml",
+              "ToolTip": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\Pages\\FilePickerPage.xaml",
+              "RelativeToolTip": "Essentials\\Pages\\FilePickerPage.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-27T13:22:04.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AccelerometerViewModel.cs",
+              "DocumentMoniker": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\ViewModels\\AccelerometerViewModel.cs",
+              "RelativeDocumentMoniker": "Essentials\\ViewModels\\AccelerometerViewModel.cs",
+              "ToolTip": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\ViewModels\\AccelerometerViewModel.cs",
+              "RelativeToolTip": "Essentials\\ViewModels\\AccelerometerViewModel.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAiwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T12:57:53.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeViewModel.cs",
+              "DocumentMoniker": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\ViewModels\\HomeViewModel.cs",
+              "RelativeDocumentMoniker": "Essentials\\ViewModels\\HomeViewModel.cs",
+              "ToolTip": "D:\\Work\\ASE\\TMW\\tehnologii-mobile\\Essentials\\Essentials\\ViewModels\\HomeViewModel.cs",
+              "RelativeToolTip": "Essentials\\ViewModels\\HomeViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T12:56:18.508Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
